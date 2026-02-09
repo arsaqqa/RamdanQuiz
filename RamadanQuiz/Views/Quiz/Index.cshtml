@@ -1,5 +1,122 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model RamadanQuiz.ViewModels.QuestionViewModel;
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="~/css/quiz.css" rel="stylesheet" />
+
+
+<form asp-action="Index" method="post">
+
+    <div class="container py-2">
+
+        <div class="text-center">
+            <div class="moon">☪</div>
+            <h2 class="title">مسابقة رمضان</h2>
+        </div>
+
+        <div class="row justify-content-center mt-4 mb-5">
+            <div class="col-md-8">
+                <div class="card-ramadan text-center">
+                    <h4 class="question-title">السؤال الأول</h4>
+                    <p class="fs-4">
+                        @Model.QuestionText
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+
+                @foreach (var option in Model.questionOption)
+                {
+                    <label class="option w-100">
+
+                        <input type="radio"
+                               asp-for="@option.Text"
+                               value="@option.Value"
+                               hidden />
+
+                        <div class="circle">
+                            @option.Value
+                        </div>
+
+                        <span>@option.Text</span>
+                    </label>
+                }
+
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn-login">
+                ارسال
+            </button>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+
+
+
+@* @using RamadanQuiz.ViewModels
+
 @{
+    ViewData["Title"] = "مسابقة رمضان";
 }
+
+    <meta charset="UTF-8" />
+    <title>مسابقة رمضان</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/css/quiz.css" rel="stylesheet" />
+    
+
+
+
+    <div class="container py-2">
+        <div class="text-center">
+            <div class="moon">☪</div>
+            <h2 class="title">مسابقة رمضان</h2>
+        </div>
+
+        <div class="row justify-content-center mt-4 mb-5">
+            <div class="col-md-8">
+                <div class="card-ramadan text-center">
+                    <h4 class="question-title">السؤال الأول</h4>
+                    <p class="fs-4">
+                    ما هي السّورة التي ذُكر فيها شهر رمضان؟
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="option">
+                    <div class="circle">A</div>
+                <span>سورة المائدة</span>
+                </div>
+
+                <div class="option">
+                    <div class="circle">B</div>
+                <span>سورة البقرة</span>
+                </div>
+
+                <div class="option">
+                    <div class="circle">B</div>
+                <span>سورة محمد</span>
+                </div>
+            </div>
+        </div>
+
+    <div class="d-flex justify-content-center mt-4">
+    <button id="btnLogin" type="submit" class="btn-login">
+        ارسال
+    </button></div>
+
+
+    </div>
+ *@

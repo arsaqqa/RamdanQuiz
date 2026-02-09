@@ -1,0 +1,114 @@
+﻿body {
+    font-family: 'Cairo', sans-serif;
+    background: #f3f3f3;
+    background-image: radial-gradient(#e6e6e6 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.title {
+    color: #ad3f36;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.moon {
+    font-size: 52px;
+    color: #cf9d06;
+    margin-bottom: 10px;
+}
+
+.card-ramadan {
+    background: #ad3f36;
+    color: #fff;
+    border-radius: 40px;
+    padding: 50px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+   
+    .card-ramadan::after {
+        content: "✦ ✧ ✦ ✧";
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: rgba(255,255,255,0.4);
+        font-size: 18px;
+    }
+
+    .card-ramadan::before {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 45px;
+        background: #ad3f36;
+        z-index: -1;
+    }
+
+.question-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.option {
+    background: #ffffff;
+    color: #d34f44;
+    border-radius: 50px;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+    .option:hover {
+        background: #e9f3f2;
+        border-color: #d6b56a;
+    }
+
+.circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #d34f44;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+    .btn-login {
+        width: 20%;
+        height: 56px;
+        background-color: #9f7700;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 100;
+        border: none;
+        border-radius: 10px;
+        transition: 0.3s ease;
+        display: block;
+        margin: 0 auto; /* بالنص */
+    }
+@media (max-width: 768px) {
+    .btn-login {
+        width: 85%;
+    }
+}
+
+
+
+.btn-login:hover {
+    background: #e9f3f2;
+}
+
+        .btn-login:active {
+            transform: scale(0.98);
+        }
