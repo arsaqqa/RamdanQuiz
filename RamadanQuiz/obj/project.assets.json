@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\work\\RamadanQuiz\\RamadanQuiz\\RamadanQuiz.csproj",
+      "projectUniqueName": "C:\\work\\RamdanQuiz\\RamadanQuiz\\RamadanQuiz.csproj",
       "projectName": "RamadanQuiz",
-      "projectPath": "C:\\work\\RamadanQuiz\\RamadanQuiz\\RamadanQuiz.csproj",
+      "projectPath": "C:\\work\\RamdanQuiz\\RamadanQuiz\\RamadanQuiz.csproj",
       "packagesPath": "C:\\Users\\arsaqqa\\.nuget\\packages\\",
-      "outputPath": "C:\\work\\RamadanQuiz\\RamadanQuiz\\obj\\",
+      "outputPath": "C:\\work\\RamdanQuiz\\RamadanQuiz\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
