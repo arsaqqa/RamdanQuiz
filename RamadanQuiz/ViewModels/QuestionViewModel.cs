@@ -11,6 +11,7 @@ namespace RamadanQuiz.ViewModels
         public string QuestionText { get; set; } = string.Empty;
         [DataType(DataType.Date)]
         public string QuestionDate { get; set; } = string.Empty;
+        public string QuestionDay { get; set; } = string.Empty;
         [DataType(DataType.Time)]
         public string QuestionFromTime { get; set; } = string.Empty;
         [DataType(DataType.Time)]

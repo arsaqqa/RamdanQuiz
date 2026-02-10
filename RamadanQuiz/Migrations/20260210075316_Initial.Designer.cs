@@ -12,7 +12,7 @@ using RamadanQuiz.Data;
 namespace RamadanQuiz.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    [Migration("20260209094643_Initial")]
+    [Migration("20260210075316_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -57,8 +57,18 @@ namespace RamadanQuiz.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
 
+                    b.Property<string>("AnswerSource")
+                        .IsRequired()
+                        .HasMaxLength(2500)
+                        .HasColumnType("nvarchar(2500)");
+
                     b.Property<DateOnly>("QuestionDate")
                         .HasColumnType("date");
+
+                    b.Property<string>("QuestionDay")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<DateTime>("QuestionFromTime")
                         .HasColumnType("datetime2");

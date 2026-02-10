@@ -8,7 +8,11 @@ namespace RamadanQuiz.Models
     public int QuestionId { get; set; }
         [MaxLength(2500)]
         public string QuestionText { get; set; } = string.Empty;
-       
+        [MaxLength(250)]
+        public string QuestionDay { get; set; } = string.Empty;
+        [MaxLength(2500)]
+        public string AnswerSource { get; set; } = string.Empty;
+
         public DateOnly QuestionDate { get; set; } = DateOnly.FromDateTime(DateTime.UtcNow);
         [DataType(DataType.Time)]
         public DateTime QuestionFromTime { get; set; } = DateTime.UtcNow; 

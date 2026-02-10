@@ -18,6 +18,8 @@ namespace RamadanQuiz.Migrations
                     QuestionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     QuestionText = table.Column<string>(type: "nvarchar(2500)", maxLength: 2500, nullable: false),
+                    QuestionDay = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    AnswerSource = table.Column<string>(type: "nvarchar(2500)", maxLength: 2500, nullable: false),
                     QuestionDate = table.Column<DateOnly>(type: "date", nullable: false),
                     QuestionFromTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     QuestionToTime = table.Column<DateTime>(type: "datetime2", nullable: false)

@@ -1,3 +1,4 @@
+wwwroot\css\Quiz.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
@@ -61,7 +62,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\Quiz.css
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\LICENSE.txt
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.min.js
