@@ -50,10 +50,14 @@ namespace RamadanQuiz.Controllers
 
             var model = await _QuizContext.Question
                 .Include(x => x.questionOption)
+
+                //  .Where(x => x.QuestionFromTime >= DateTime.Now
+                //&& x.QuestionToTime <= DateTime.Now)
                 .Select(x => new QuestionViewModel
                 {
                     QuestionId = x.QuestionId,
                     QuestionText = x.QuestionText,
+                    QuestionDay = x.QuestionDay,
                     QuestionDate = x.QuestionDate.ToString(),
                     QuestionFromTime = x.QuestionFromTime.ToString(),
                     QuestionToTime = x.QuestionToTime.ToString(),
@@ -63,10 +67,16 @@ namespace RamadanQuiz.Controllers
                         QuestionOptionID = c.QuestionOptionID,
                         QuestionOptionText = c.QuestionOptionText
                     }).ToList()
-                }).FirstOrDefaultAsync();
+                }
 
 
+                ).FirstOrDefaultAsync();
 
+            if (model == null)
+            {
+                ViewBag.ErrorMsg = "لا يوجد سؤال متاح حالياً";
+                return View(new QuestionViewModel());
+            }
 
 
             //    .Where(x => x.QuestionFromTime <= DateTime.Now
@@ -126,17 +136,30 @@ namespace RamadanQuiz.Controllers
             return View(model);
         }
 
-        //public IActionResult Option() {
 
-        //    {
-        //        return _dbContext.device.Select(d => new SelectListItem
-        //        {
-        //            Text = d.device_name,
-        //            Value = d.id.ToString()
-        //        }).ToList();
-            
-        //    return view();
-        //}
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SubmitAnswer(EmployeeAnswerViewModel employeeAnswerViewModel)
+        {
+            if (employeeAnswerViewModel.QuestionOptionId == 0)
+            { }
+            EmployeeAnswer employeeAnswer = new EmployeeAnswer();
+            employeeAnswer.QuestionOptionId = employeeAnswerViewModel.QuestionOptionId;
+            employeeAnswer.EmployeeId = 1;
+            //e employeeAnswerViewModel.EmployeeId;
+            employeeAnswer.AnswerDateTime =DateTime.UtcNow ;
+            _QuizContext.EmployeeAnswer.Add(employeeAnswer);
+            await _QuizContext.SaveChangesAsync();
+          
+           
+
+
+            return View(employeeAnswerViewModel);
+
+
+        }
+
 
     }
 }

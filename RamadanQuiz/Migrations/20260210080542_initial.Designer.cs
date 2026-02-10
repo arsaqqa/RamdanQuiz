@@ -12,8 +12,8 @@ using RamadanQuiz.Data;
 namespace RamadanQuiz.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    [Migration("20260210075316_Initial")]
-    partial class Initial
+    [Migration("20260210080542_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

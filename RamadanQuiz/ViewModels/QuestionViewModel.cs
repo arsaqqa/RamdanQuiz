@@ -16,11 +16,17 @@ namespace RamadanQuiz.ViewModels
         public string QuestionFromTime { get; set; } = string.Empty;
         [DataType(DataType.Time)]
         public string QuestionToTime { get; set; } = string.Empty;
-        [Required]
-        //public int QuestionOptionId { get; set; }
 
+        public string QuestionSource { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "الرجاء اختيار إجابة")]
+        public int QuestionOptionId { get; set; }
+        public int EmployeeId { get; set; }
 
         public IEnumerable<QuestionOption> questionOption { get; set; } = Enumerable.Empty<QuestionOption>();
         //public int SelectedOptionId { get; set; } = 0;
+
+  
+
     }
 }
