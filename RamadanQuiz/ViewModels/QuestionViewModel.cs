@@ -19,7 +19,7 @@ namespace RamadanQuiz.ViewModels
         //public int QuestionOptionId { get; set; }
 
 
-        public IEnumerable<SelectListItem> questionOption { get; set; } = Enumerable.Empty<SelectListItem>();
+        public IEnumerable<QuestionOption> questionOption { get; set; } = Enumerable.Empty<QuestionOption>();
         //public int SelectedOptionId { get; set; } = 0;
     }
 }

@@ -329,3 +329,4 @@ C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\refint\RamadanQuiz.dll
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.pdb
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.genruntimeconfig.cache
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\ref\RamadanQuiz.dll
+C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\fqoi7pmm4f-{0}-vagbioyrqp-vagbioyrqp.gz

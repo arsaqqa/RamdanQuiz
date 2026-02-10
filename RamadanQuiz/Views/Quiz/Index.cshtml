@@ -31,15 +31,15 @@
                     <label class="option w-100">
 
                         <input type="radio"
-                               asp-for="@option.Text"
-                               value="@option.Value"
+                               asp-for="@option.QuestionOptionText"
+                               value="@option.QuestionOptionID"
                                hidden />
 
                         <div class="circle">
-                            @option.Value
+                            @option.QuestionOptionID
                         </div>
 
-                        <span>@option.Text</span>
+                        <span>@option.QuestionOptionText</span>
                     </label>
                 }
 

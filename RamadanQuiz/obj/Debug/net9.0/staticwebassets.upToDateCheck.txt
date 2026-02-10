@@ -61,6 +61,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\Quiz.css
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\LICENSE.txt
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.min.js
@@ -123,3 +124,4 @@ C:\work\RamdanQuiz\RamadanQuiz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\js\site.js
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\favicon.ico
 C:\work\RamdanQuiz\RamadanQuiz\wwwroot\css\site.css
+C:\work\RamdanQuiz\RamadanQuiz\wwwroot\css\Quiz.css
