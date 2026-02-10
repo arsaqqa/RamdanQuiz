@@ -29,24 +29,74 @@ namespace RamadanQuiz.Controllers
             //        q.QuestionDate.Month == now.Month)
             //    .ToListAsync();
 
-            DateOnly now = DateOnly.FromDateTime(DateTime.Now);
+            DateOnly now = DateOnly.FromDateTime(DateTime.UtcNow);
 
-            var questions = await _QuizContext.Question
-                .Where(q =>
-                    q.QuestionDate.Year == now.Year &&
-               
-                    q.QuestionDate.Day == now.Day) // لو تريد اليوم فقط
-                .ToListAsync();
-            //Question question = await _QuizContext.Question.Include(q => q.questionOption).FirstOrDefaultAsync(q => q.QuestionDate.ToString("yyyy-MM-dd") == today); //must return server date
-            //Question question = await _QuizContext.Question;
+            //Question question = await _QuizContext.Question
+            //    .Where(q =>
+            //        q.QuestionDate.Year == now.Year &&
+            //        q.QuestionDate.Month == now.Month &&
+            //        q.QuestionDate.Day == now.Day) // لو تريد اليوم فقط
+
+
+            //Question question = await _QuizContext.Question.Include(q => q.questionOption).FirstOrDefaultAsync(q =>  q.QuestionDate.Year == now.Year && q.QuestionDate.Month == now.Month &&   q.QuestionDate.Day == now.Day); //must return server date
+
+            //var questionMV = await _QuizContext.Question
+            //    .Include(x => x.questionOption)
+            //    .Where(x => x.QuestionFromTime >= DateTime.Now
+            //             && x.QuestionToTime <= DateTime.Now)
+            //    .FirstOrDefaultAsync();
+
+
+
+            var model = await _QuizContext.Question
+                .Include(x => x.questionOption)
+                .Select(x => new QuestionViewModel
+                {
+                    QuestionId = x.QuestionId,
+                    QuestionText = x.QuestionText,
+                    QuestionDate = x.QuestionDate.ToString(),
+                    QuestionFromTime = x.QuestionFromTime.ToString(),
+                    QuestionToTime = x.QuestionToTime.ToString(),
+                    questionOption = x.questionOption.Select(c => new QuestionOption
+                    {
+                        QuestionId = c.QuestionId,
+                        QuestionOptionID = c.QuestionOptionID,
+                        QuestionOptionText = c.QuestionOptionText
+                    }).ToList()
+                }).FirstOrDefaultAsync();
+
+
+
+
+
+            //    .Where(x => x.QuestionFromTime <= DateTime.Now
+            //             && x.QuestionToTime >= DateTime.Now)
+            //    .FirstOrDefaultAsync();
+            // if (model == null)
+            //{
+            //    // Handle the case where no question is found (e.g., show a message or redirect)
+            //    return View("NoQuestion");
+            //}
+            // viewmodel.QuestionId = model.QuestionId;
+            // viewmodel.QuestionText = model.QuestionText;
+            // viewmodel.questionOption = model.questionOption.Select(c => new QuestionOption
+            // {
+            //     QuestionId = c.QuestionId,
+            //     QuestionOptionID = c.QuestionOptionID,
+            //     QuestionOptionText = c.QuestionOptionText
+            // }).ToList();
+
+
+
+            ////Question question = await _QuizContext.Question;
             //viewmodel.QuestionId = question.QuestionId;
             //viewmodel.QuestionText = question.QuestionText;
-            //  viewmodel.questionOption = question.questionOption.Select(c => new QuestionOption
-            //  {
-            //      QuestionId = c.QuestionId,
-            //      QuestionOptionID = c.QuestionOptionID,
-            //      QuestionOptionText = c.QuestionOptionText
-            //  }) .ToList();
+            //viewmodel.questionOption = question.questionOption.Select(c => new QuestionOption
+            //{
+            //    QuestionId = c.QuestionId,
+            //    QuestionOptionID = c.QuestionOptionID,
+            //    QuestionOptionText = c.QuestionOptionText
+            //}).ToList();
 
 
 
@@ -73,7 +123,7 @@ namespace RamadanQuiz.Controllers
             //}
             //};
             //return ;
-            return View(viewmodel);
+            return View(model);
         }
 
         //public IActionResult Option() {
