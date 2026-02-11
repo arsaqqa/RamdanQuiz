@@ -154,11 +154,23 @@ namespace RamadanQuiz.Controllers
 
 
 
+        public IActionResult EmployeeAnswer()
+        {
+
+
+
+            
+
+
+            return View();
+        }
 
 
 
 
-        
+
+
+
 
 
     }
