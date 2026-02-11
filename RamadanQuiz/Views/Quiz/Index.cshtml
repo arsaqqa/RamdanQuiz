@@ -3,13 +3,21 @@
 <link href="~/css/quiz.css" rel="stylesheet" />
 
 
+@if (ViewBag.ErrorMsg != null)
+{
+    <div class="alert alert-warning text-center">
+        @ViewBag.ErrorMsg
+    </div>
+}
+
+
 <form asp-action="SubmitAnswer" method="post">
 
     <div class="container py-2">
 
         <div class="text-center">
             <div class="moon">☪</div>
-            <h2 class="title">مسابقة رمضان</h2>
+            <h2 class="title">مسابقة رمضان 2026</h2>
         </div>
 
         <div class="row justify-content-center mt-4 mb-5">
@@ -33,11 +41,11 @@
                         <input type="radio"
                                asp-for="QuestionOptionId"
                                value="@option.QuestionOptionID"
-                               hidden />
+                                />
 
-                        <div class="circle">
+                      @*   <div class="circle">
                             
-                        </div>
+                        </div> *@
 
                         <span>@option.QuestionOptionText</span>
                     </label>
@@ -49,8 +57,10 @@
       
         <div class="d-flex justify-content-center mt-4">
             <button type="submit" class="btn-login">
+                <i class="bi bi-send-fill"></i>
                 ارسال
             </button>
+           
         </div>
 
     </div>
@@ -62,10 +72,55 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
-        const errorMsg = "@ViewBag.ErrorMsg";
-        if (errorMsg) {
-            toastr.error(errorMsg);
+        @{
+                    var errorMsg = ViewBag.ErrorMsg;
         }
+
+        const errorMsg = "@errorMsg";
+        if(errorMsg) {
+           toastr["error"](errorMsg, "", {
+               "closeButton": true,
+               "debug": false,
+               "newestOnTop": true,
+               "progressBar": true,
+               "positionClass": "toast-top-left",
+               "preventDuplicates": true,
+               "onclick": null,
+               "showDuration": "300",
+               "hideDuration": "1000",
+               "timeOut": "3000",
+               "extendedTimeOut": "1000",
+               "showEasing": "swing",
+               "hideEasing": "linear",
+               "showMethod": "fadeIn",
+               "hideMethod": "fadeOut"
+           });
+        }
+
+        (function () {
+          
+
+            $form.on('submit', function (e) {
+
+                // if client-side validation exists, only show overlay when form is valid
+                if ($.validator && !$form.valid()) {
+                    return true; // allow validation messages
+                }
+
+                if ($btn.prop('disabled')) {
+                    // prevent double submit
+                    e.preventDefault();
+                    return false;
+                }
+
+                $btn.prop('disabled', true).attr('aria-disabled', 'true');
+                $overlay.fadeIn(100);
+
+                // Let the form submit normally
+                return true;
+            });
+
+        
+        })();
     </script>
 }
-

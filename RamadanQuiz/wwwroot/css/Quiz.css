@@ -106,9 +106,12 @@
 
 
 .btn-login:hover {
-    background: #e9f3f2;
+    background: #ad3f36;
 }
 
         .btn-login:active {
             transform: scale(0.98);
         }
+.option:has(input:checked) {
+    border: 2px solid #cf9d06;
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RamadanQuiz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+420cbea09cac3af70735eba94a07409cce09dc49")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01a7e07b5a821945a86d6ef96e03fb8c7147f723")]
 [assembly: System.Reflection.AssemblyProductAttribute("RamadanQuiz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RamadanQuiz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
