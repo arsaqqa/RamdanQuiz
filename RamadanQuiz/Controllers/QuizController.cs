@@ -96,8 +96,12 @@ namespace RamadanQuiz.Controllers
             else
             {
                 Submit(questionViewModel);
+
+                TempData["SuccessMessage"] = "تم إرسال إجابتك بنجاح 🌙";
             }
-            return RedirectToAction("Index", "Home");
+
+   
+             return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -109,7 +113,7 @@ namespace RamadanQuiz.Controllers
                 if (questionViewModel.QuestionOptionId == 0)
                 {
 
-                 }
+                }
 
 
                 EmployeeAnswer employeeAnswer = new EmployeeAnswer();
