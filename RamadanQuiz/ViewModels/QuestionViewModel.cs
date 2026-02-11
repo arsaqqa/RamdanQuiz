@@ -19,7 +19,7 @@ namespace RamadanQuiz.ViewModels
 
         public string QuestionSource { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "الرجاء اختيار إجابة")]
+        [Required(ErrorMessage = "الرجاء اختيار الاجابة قبل الارسال")]
         public int QuestionOptionId { get; set; }
         public int EmployeeId { get; set; }
 

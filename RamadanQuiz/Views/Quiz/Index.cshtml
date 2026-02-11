@@ -3,13 +3,26 @@
 <link href="~/css/quiz.css" rel="stylesheet" />
 
 
+@if (ViewBag.ErrorMsg != null)
+{
+    <div class="alert alert-warning text-center">
+        @ViewBag.ErrorMsg
+    </div>
+}
+
+
 <form asp-action="SubmitAnswer" method="post">
 
+
+    <input type="hidden" asp-for="QuestionId" />
+    <input type="hidden" asp-for="QuestionDay" />
+    <input type="hidden" asp-for="QuestionText" />
+    <input type="hidden" asp-for="EmployeeId" />
     <div class="container py-2">
 
         <div class="text-center">
             <div class="moon">☪</div>
-            <h2 class="title">مسابقة رمضان</h2>
+            <h2 class="title">مسابقة رمضان 2026</h2>
         </div>
 
         <div class="row justify-content-center mt-4 mb-5">
@@ -33,24 +46,28 @@
                         <input type="radio"
                                asp-for="QuestionOptionId"
                                value="@option.QuestionOptionID"
-                               hidden />
+                                />
+                     
 
-                        <div class="circle">
+
+                      @*   <div class="circle">
                             
-                        </div>
+                        </div> *@
 
                         <span>@option.QuestionOptionText</span>
                     </label>
                 }
-                
+                <span asp-validation-for="QuestionOptionId" class="text-danger"></span>
 
             </div>
         </div>
       
         <div class="d-flex justify-content-center mt-4">
             <button type="submit" class="btn-login">
+                <i class="bi bi-send-fill"></i>
                 ارسال
             </button>
+           
         </div>
 
     </div>
@@ -61,11 +78,16 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
-    <script>
-        const errorMsg = "@ViewBag.ErrorMsg";
-        if (errorMsg) {
-            toastr.error(errorMsg);
-        }
-    </script>
-}
 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var toastEl = document.getElementById('successToast');
+            if (toastEl) {
+                var toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        });
+    </script>
+
+}
