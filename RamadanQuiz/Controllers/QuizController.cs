@@ -51,8 +51,8 @@ namespace RamadanQuiz.Controllers
             var model = await _QuizContext.Question
                 .Include(x => x.questionOption)
 
-                //  .Where(x => x.QuestionFromTime >= DateTime.Now
-                //&& x.QuestionToTime <= DateTime.Now)
+                  .Where(x => x.QuestionFromTime >= DateTime.Now
+                && x.QuestionToTime <= DateTime.Now)
                 .Select(x => new QuestionViewModel
                 {
                     QuestionId = x.QuestionId,
@@ -140,22 +140,27 @@ namespace RamadanQuiz.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SubmitAnswer(EmployeeAnswerViewModel employeeAnswerViewModel)
+        public async Task  SubmitAnswer(QuestionViewModel employeeAnswerViewModel)
         {
             if (employeeAnswerViewModel.QuestionOptionId == 0)
             { }
+            //var model =  _QuizContext.Question
+               
+
+            //     .Where(x => x.QuestionId == employeeAnswerViewModel .que
+            //   && x.QuestionToTime <= DateTime.Now)
+
             EmployeeAnswer employeeAnswer = new EmployeeAnswer();
             employeeAnswer.QuestionOptionId = employeeAnswerViewModel.QuestionOptionId;
             employeeAnswer.EmployeeId = 1;
-            //e employeeAnswerViewModel.EmployeeId;
+
             employeeAnswer.AnswerDateTime =DateTime.UtcNow ;
-            _QuizContext.EmployeeAnswer.Add(employeeAnswer);
-            await _QuizContext.SaveChangesAsync();
-          
+            _QuizContext.Add(employeeAnswer);
+            _QuizContext.SaveChanges();
            
 
 
-            return View(employeeAnswerViewModel);
+          //return View(employeeAnswerViewModel);
 
 
         }

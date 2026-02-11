@@ -13,6 +13,12 @@ namespace RamadanQuiz.Data
             : base(options)
         {
         }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<EmployeeAnswer >()
+        //        .HasIndex(q => new { q.EmployeeId, q.q })
+        //        .IsUnique();
+        //}
         public DbSet<Question> Question { get; set; }
         public DbSet<QuestionOption> QuestionOption { get; set; }
         public DbSet<EmployeeAnswer> EmployeeAnswer { get; set; }

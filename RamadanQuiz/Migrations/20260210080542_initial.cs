@@ -47,7 +47,7 @@ namespace RamadanQuiz.Migrations
                         column: x => x.QuestionId,
                         principalTable: "Question",
                         principalColumn: "QuestionId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
