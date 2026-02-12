@@ -18,9 +18,9 @@ namespace RamadanQuiz.ViewModels
         public bool IsCorrect { get; set; }
 
 
-        public int EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
 
-        public int EmployeeQuestionOptionId { get; set; }
-        public string EmployeeQuestionOptionText { get; set; }
+        public int? EmployeeQuestionOptionId { get; set; }
+        public string? EmployeeQuestionOptionText { get; set; }
     }
 }

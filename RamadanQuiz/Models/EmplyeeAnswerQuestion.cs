@@ -10,8 +10,8 @@ namespace RamadanQuiz.Models
         //[Key]
         //public int EmployeeAnswerId { get; set; }
         //[ForeignKey(nameof(Question))]
- 
 
+        public int EmplyeeAnswerQuestionId { get; set; }
         public int QuestionId { get; set; }
         public string QuestionText { get; set; }
         
@@ -26,10 +26,10 @@ namespace RamadanQuiz.Models
          public bool IsCorrect { get; set; }
     
 
-        public int EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
 
-        public int EmployeeQuestionOptionId { get; set; }
-        public string EmployeeQuestionOptionText { get; set; }
+        public int? EmployeeQuestionOptionId { get; set; }
+        public string? EmployeeQuestionOptionText { get; set; }
 
 
     }

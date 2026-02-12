@@ -161,7 +161,7 @@ namespace RamadanQuiz.Controllers
             var model = await _QuizContext.EmplyeeAnswerQuestion
 
 
-                 .Where(x => x.QuestionToTime < DateTime.Now)
+                 //.Where(x => x.QuestionToTime < DateTime.Now)
                .Select(x => new EmplyeeAnswerQuestionViewModel
                {
                    QuestionId = x.QuestionId,

@@ -4,7 +4,7 @@ namespace RamadanQuiz.Models
 {
     public class Question
     {
-
+        [Key]
     public int QuestionId { get; set; }
         [MaxLength(2500)]
         public string QuestionText { get; set; } = string.Empty;
