@@ -563,3 +563,4 @@ C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\refint\RamadanQuiz.dll
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.pdb
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.genruntimeconfig.cache
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\ref\RamadanQuiz.dll
+D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\xk5o5eip13-7rd1dq4ern.gz
