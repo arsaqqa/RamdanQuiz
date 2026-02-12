@@ -1,0 +1,46 @@
+﻿body {
+    background: #f4f6f9;
+    font-family: 'Cairo', sans-serif;
+}
+
+.result-card {
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+
+
+.question-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.option {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+}
+
+.correct {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #28a745;
+}
+
+.wrong {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #dc3545;
+}
+
+.normal {
+    background-color: #ffffff;
+}
+
+.badge-result {
+    font-size: 14px;
+}
