@@ -154,15 +154,33 @@ namespace RamadanQuiz.Controllers
 
 
 
-        public IActionResult EmployeeAnswer()
+        public async Task<IActionResult> EmployeeAnswer()
         {
 
 
+            var model = await _QuizContext.EmplyeeAnswerQuestion
 
-            
+
+                 .Where(x => x.QuestionToTime < DateTime.Now)
+               .Select(x => new EmplyeeAnswerQuestionViewModel
+               {
+                   QuestionId = x.QuestionId,
+                   QuestionDay = x.QuestionDay,
+                   QuestionDate = x.QuestionDate,
+                   QuestionText = x.QuestionText,
+                   QuestionOptionID = x.QuestionOptionID,
+                   QuestionOptionText = x.QuestionOptionText,
+                   IsCorrect = x.IsCorrect,
+                   EmployeeId = 1,
+                   EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
+                   EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
+
+               }).ToListAsync();
 
 
-            return View();
+
+
+            return View(model);
         }
 
 
