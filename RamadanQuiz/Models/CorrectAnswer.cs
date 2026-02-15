@@ -7,8 +7,7 @@ namespace RamadanQuiz.Models
        
 
     {
-        [Key]
-        public int Id { get; set; }
+ 
     
            public int QuestionOptionID { get; set; }
            public int QuestionId { get; set; }

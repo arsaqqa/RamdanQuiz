@@ -7,11 +7,12 @@ namespace RamadanQuiz.Models
 
     public class EmplyeeAnswerQuestion
     {
-        [Key]
-        public int EmployeeAnswerId { get; set; }
-        [ForeignKey(nameof(Question))]
+        //[Key]
+        //public int Id { get; set; }
+        //public int EmployeeAnswerId { get; set; }
+        //[ForeignKey(nameof(Question))]
 
-        public int EmplyeeAnswerQuestionId { get; set; }
+  
         public int QuestionId { get; set; }
        
         //public int QuestionOptionID { get; set; }
@@ -23,7 +24,7 @@ namespace RamadanQuiz.Models
         public int? EmployeeId { get; set; }
 
         public int  EmployeeQuestionOptionId { get; set; }
-        public QuestionOption EmployeeQuestionOption;
+        public string EmployeeQuestionOptionText { get; set; }
 
 
     }

@@ -13,7 +13,6 @@ namespace RamadanQuiz.Models
         [Required]
         public int QuestionOptionId { get; set; }
         public QuestionOption QuestionOption { get; set; }
-   
         public DateTime AnswerDateTime { get; set; }
 
 

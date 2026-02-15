@@ -175,34 +175,34 @@ namespace RamadanQuiz.Controllers
             var model1 = await _QuizContext.EmplyeeAnswerQuestion
 
 
-                 .Where(x => x.EmployeeId == emplyeeId)
-               .Select(x => new EmployeeAnswerViewModel
+                .Where(x => x.EmployeeId == emplyeeId)
+              .Select(x => new EmplyeeAnswerQuestion
                {
-                   QuestionOptionId = x.EmployeeQuestionOptionId,
+                    EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
+                  EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
+                  // QuestionOption = x.EmployeeQuestionOption
+                  //.Select(c => new QuestionOption
+                  //{
+                  //    QuestionId = c.QuestionId,
+                  //    QuestionOptionID = c.QuestionOptionID,
+                  //    QuestionOptionText = c.QuestionOptionText
+                  //}).ToList()
+                  //    //QuestionDate = x.QuestionDate,
+                  //    //QuestionText = x.QuestionText,
+                  //    //QuestionOptionID = x.QuestionOptionID,
+                  //    //QuestionOptionText = x.QuestionOptionText,
+                  //    //IsCorrect = x.IsCorrect,
+                  //    //EmployeeId = 1,
+                  //    //EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
+                  //    //EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
 
-                   QuestionOption = x.EmployeeQuestionOption
-                   //.Select(c => new QuestionOption
-                   //{
-                   //    QuestionId = c.QuestionId,
-                   //    QuestionOptionID = c.QuestionOptionID,
-                   //    QuestionOptionText = c.QuestionOptionText
-                   //}).ToList()
-                   //QuestionDate = x.QuestionDate,
-                   //QuestionText = x.QuestionText,
-                   //QuestionOptionID = x.QuestionOptionID,
-                   //QuestionOptionText = x.QuestionOptionText,
-                   //IsCorrect = x.IsCorrect,
-                   //EmployeeId = 1,
-                   //EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
-                   //EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
-
-               }).ToListAsync();
+              }).ToListAsync();
 
 
             EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel
             {
-                questionOption = model,
-                employeeAnswer = model1
+                correctAnswerViewModel = model,
+            employeeAnswer = model1 
             };
 
             return View(model2);
