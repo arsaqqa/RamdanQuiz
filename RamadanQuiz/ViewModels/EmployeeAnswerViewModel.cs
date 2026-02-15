@@ -8,7 +8,7 @@ namespace RamadanQuiz.ViewModels
         public int EmployeeId { get; set; }
 
         public int QuestionOptionId { get; set; }
-        QuestionOption QuestionOption { get; set; } = new QuestionOption();
+      public  QuestionOption QuestionOption { get; set; } 
         public DateTime AnswerDateTime { get; set; }
 
         

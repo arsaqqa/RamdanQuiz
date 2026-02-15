@@ -4,23 +4,25 @@ namespace RamadanQuiz.ViewModels
 {
     public class EmplyeeAnswerQuestionViewModel
     {
-        public int QuestionId { get; set; }
-        public string QuestionText { get; set; }
 
-        public string QuestionDay { get; set; }
+        public IEnumerable<CorrectAnswerViewModel> questionOption { get; set; } = Enumerable.Empty<CorrectAnswerViewModel >();
+        //public int QuestionId { get; set; }
+        //public string QuestionText { get; set; }
 
-        public DateOnly QuestionDate { get; set; } = DateOnly.FromDateTime(DateTime.UtcNow);
+        //public string QuestionDay { get; set; }
 
-        public DateTime QuestionToTime { get; set; } = DateTime.UtcNow;
-        public int QuestionOptionID { get; set; }
-        public string QuestionOptionText { get; set; }
+        //public DateOnly QuestionDate { get; set; } = DateOnly.FromDateTime(DateTime.UtcNow);
 
-        public bool IsCorrect { get; set; }
+        //public DateTime QuestionToTime { get; set; } = DateTime.UtcNow;
+        //public int QuestionOptionID { get; set; }
+        //public string QuestionOptionText { get; set; }
 
+        //public bool IsCorrect { get; set; }
+        public IEnumerable<EmployeeAnswerViewModel> employeeAnswer { get; set; } = Enumerable.Empty<EmployeeAnswerViewModel>();
 
-        public int? EmployeeId { get; set; }
+        //public int? EmployeeId { get; set; }
 
-        public int? EmployeeQuestionOptionId { get; set; }
-        public string? EmployeeQuestionOptionText { get; set; }
+        //public int? EmployeeQuestionOptionId { get; set; }
+        //public string? EmployeeQuestionOptionText { get; set; }
     }
 }

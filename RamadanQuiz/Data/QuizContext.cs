@@ -22,7 +22,7 @@ namespace RamadanQuiz.Data
         public DbSet<Question> Question { get; set; }
         public DbSet<QuestionOption> QuestionOption { get; set; }
         public DbSet<EmployeeAnswer> EmployeeAnswer { get; set; }
-
+        public DbSet<CorrectAnswer> CorrectAnswer { get; set; }
         public DbSet<EmplyeeAnswerQuestion> EmplyeeAnswerQuestion { get; set; }
     }
 }

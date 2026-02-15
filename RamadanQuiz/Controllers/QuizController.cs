@@ -51,8 +51,8 @@ namespace RamadanQuiz.Controllers
             var model = await _QuizContext.Question
                 .Include(x => x.questionOption)
 
-                //  .Where(x => x.QuestionFromTime >= DateTime.Now
-                //&& x.QuestionToTime <= DateTime.Now)
+                  .Where(x => x.QuestionFromTime <= DateTime.Now
+                && x.QuestionToTime >= DateTime.Now)
                 .Select(x => new QuestionViewModel
                 {
                     QuestionId = x.QuestionId,
@@ -154,33 +154,58 @@ namespace RamadanQuiz.Controllers
 
 
 
-        public async Task<IActionResult> EmployeeAnswer()
+        public async Task<IActionResult> EmployeeAnswer(int  emplyeeId)
         {
+           
+            var model = await _QuizContext.CorrectAnswer
+                    .Where(x => x.QuestionToTime < DateTime.Now)
+                   .Select(x => new CorrectAnswerViewModel
+                {
+                    QuestionId = x.QuestionId,
+                    QuestionText = x.QuestionText,
+                    QuestionOptionID = x.QuestionOptionID,
+                      QuestionDay = x.QuestionDay,
+                       QuestionOptionText = x.QuestionOptionText,
+                    IsCorrect = x.IsCorrect,
+                    QuestionToTime = x.QuestionToTime
+    
+                }).ToListAsync();
 
 
-            var model = await _QuizContext.EmplyeeAnswerQuestion
+            var model1 = await _QuizContext.EmplyeeAnswerQuestion
 
 
-                 //.Where(x => x.QuestionToTime < DateTime.Now)
-               .Select(x => new EmplyeeAnswerQuestionViewModel
+                 .Where(x => x.EmployeeId == emplyeeId)
+               .Select(x => new EmployeeAnswerViewModel
                {
-                   QuestionId = x.QuestionId,
-                   QuestionDay = x.QuestionDay,
-                   QuestionDate = x.QuestionDate,
-                   QuestionText = x.QuestionText,
-                   QuestionOptionID = x.QuestionOptionID,
-                   QuestionOptionText = x.QuestionOptionText,
-                   IsCorrect = x.IsCorrect,
-                   EmployeeId = 1,
-                   EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
-                   EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
+                   QuestionOptionId = x.EmployeeQuestionOptionId,
+
+                   QuestionOption = x.EmployeeQuestionOption
+                   //.Select(c => new QuestionOption
+                   //{
+                   //    QuestionId = c.QuestionId,
+                   //    QuestionOptionID = c.QuestionOptionID,
+                   //    QuestionOptionText = c.QuestionOptionText
+                   //}).ToList()
+                   //QuestionDate = x.QuestionDate,
+                   //QuestionText = x.QuestionText,
+                   //QuestionOptionID = x.QuestionOptionID,
+                   //QuestionOptionText = x.QuestionOptionText,
+                   //IsCorrect = x.IsCorrect,
+                   //EmployeeId = 1,
+                   //EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
+                   //EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
 
                }).ToListAsync();
 
 
+            EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel
+            {
+                questionOption = model,
+                employeeAnswer = model1
+            };
 
-
-            return View(model);
+            return View(model2);
         }
 
 
