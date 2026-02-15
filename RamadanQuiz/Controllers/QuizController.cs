@@ -201,7 +201,7 @@ namespace RamadanQuiz.Controllers
 
             EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel
             {
-                questionOption = model,
+                correctAnswerViewModel = model,
                 employeeAnswer = model1
             };
 

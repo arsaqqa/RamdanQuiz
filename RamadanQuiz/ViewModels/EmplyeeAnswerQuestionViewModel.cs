@@ -5,7 +5,7 @@ namespace RamadanQuiz.ViewModels
     public class EmplyeeAnswerQuestionViewModel
     {
 
-        public IEnumerable<CorrectAnswerViewModel> questionOption { get; set; } = Enumerable.Empty<CorrectAnswerViewModel >();
+        public IEnumerable<CorrectAnswerViewModel> correctAnswerViewModel { get; set; } = Enumerable.Empty<CorrectAnswerViewModel >();
         //public int QuestionId { get; set; }
         //public string QuestionText { get; set; }
 
