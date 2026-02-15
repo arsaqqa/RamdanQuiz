@@ -1,4 +1,103 @@
-﻿
+﻿@using RamadanQuiz.ViewModels
+@model List<EmplyeeAnswerQuestionViewModel>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link href="~/css/employeeanswer.css" rel="stylesheet" />
+
+
+
+<div class="container py-5">
+
+    <h2 class="text-center mb-4">نتائجك</h2>
+
+    @foreach (var questionGroup in Model.GroupBy(q => q.QuestionId))
+    {
+        var first = questionGroup.First();
+
+
+        var selectedAnswer = questionGroup
+        .FirstOrDefault(x =>
+        !string.IsNullOrEmpty(x.EmployeeQuestionOptionText));
+
+        string answerText = selectedAnswer?.EmployeeQuestionOptionText
+        ?? "لم تقم بادخال اجابة لهذا السؤال";
+
+        <div class="card shadow-sm mb-4 p-4 rounded-4">
+
+            <!-- نص السؤال -->
+            <h6 class="fw-bold mb-3">
+                @first.QuestionDay
+            </h6>
+
+            <p>@first.QuestionText</p>
+
+
+            <!-- عرض كل الخيارات -->
+            @foreach (var option in questionGroup)
+            {
+                string cssClass = "answer-box";
+
+                if (option.QuestionOptionText == first.QuestionOptionText)
+                {
+                    cssClass += " correct-answer";
+                }
+
+
+
+                if (option.EmployeeQuestionOptionText == option.QuestionOptionText
+                && !option.IsCorrect)
+                {
+                    cssClass += " wrong-answer";
+                }
+
+                <div class="@cssClass">
+                    @option.QuestionOptionText
+                </div>
+
+
+
+
+            }
+            <div class="fw-bold mt-3">
+                إجابتك: @answerText
+            </div>
+
+        </div>
+
+
+    }
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <link href="~/css/employeeanswer.css" rel="stylesheet" />
@@ -62,5 +161,5 @@
 
 
 
-
+ *@
 

@@ -25,16 +25,24 @@
     border: 1px solid #ddd;
 }
 
-.correct {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #28a745;
+.answer-box {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
 }
 
-.wrong {
+.correct-answer {
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+}
+
+.wrong-answer {
     background-color: #f8d7da;
-    color: #721c24;
     border: 1px solid #dc3545;
+    color: #721c24;
 }
 
 .normal {

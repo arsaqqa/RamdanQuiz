@@ -21,7 +21,7 @@ namespace RamadanQuiz.ViewModels
 
         [Required(ErrorMessage = "الرجاء اختيار الاجابة قبل الارسال")]
         public int QuestionOptionId { get; set; }
-        public QuestionOption EmployeeOption  { get; set; }
+        public QuestionOption? EmployeeOption  { get; set; }
         public int EmployeeId { get; set; }
 
         public IEnumerable<QuestionOption> questionOption { get; set; } = Enumerable.Empty<QuestionOption>();
