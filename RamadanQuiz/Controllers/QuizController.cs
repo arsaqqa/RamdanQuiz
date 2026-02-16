@@ -159,7 +159,7 @@ namespace RamadanQuiz.Controllers
            
             var model = await _QuizContext.CorrectAnswer
                     .Where(x => x.QuestionFromTime <= DateTime.Now)
-                   .Select(x => new CorrectAnswerViewModel
+                   .Select(x => new CorrectAnswer
                 {
                     QuestionId = x.QuestionId,
                     QuestionText = x.QuestionText,
@@ -208,7 +208,7 @@ namespace RamadanQuiz.Controllers
 
             EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel
             {
-                correctAnswerViewModel = model,
+                correctAnswer = model,
 
             employeeAnswer = model1 
 

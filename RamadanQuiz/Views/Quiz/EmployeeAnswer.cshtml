@@ -10,7 +10,7 @@
 
     <h2 class="text-center fw-bold mb-5 ">نتائج المسابقة</h2>
 
-    @foreach (var correctAnswer in Model.correctAnswerViewModel)
+    @foreach (var correctAnswer in Model.correctAnswer)
     {
         var empAnswer = Model.employeeAnswer
         .FirstOrDefault(x => x.QuestionId == correctAnswer.QuestionId);

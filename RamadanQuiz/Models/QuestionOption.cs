@@ -19,7 +19,7 @@ namespace RamadanQuiz.Models
 
         public bool IsCorrect { get; set; } 
         
-        //public Question Question { get; set; } = new Question();
+   
 
     }
 }

@@ -487,7 +487,6 @@ C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\scopedcss\bundle\RamadanQuiz.styles.css
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\scopedcss\projectbundle\RamadanQuiz.bundle.scp.css
-C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\4hzdpdte44-{0}-2c85bnhhb0-2c85bnhhb0.gz
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\fqoi7pmm4f-{0}-u32do9gk1a-u32do9gk1a.gz
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\yz5r6dp64v-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\n024hu2w6s-{0}-61n19gt1b8-61n19gt1b8.gz
@@ -565,3 +564,4 @@ C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\refint\RamadanQuiz.dll
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.pdb
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.genruntimeconfig.cache
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\ref\RamadanQuiz.dll
+C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\4hzdpdte44-{0}-0qhmpdx34n-0qhmpdx34n.gz
