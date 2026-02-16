@@ -68,7 +68,7 @@ namespace RamadanQuiz.Controllers
                 }
                 else
                 {
-                    TempData["ErrorMsg"] = "لقد قمت بالإجابة على هذا السؤال من قبل";
+                    TempData["ErrorMsg"] = "لقد قمت بالإجابة على  سؤال اليوم من قبل";
                     return RedirectToAction("EmployeeAnswer", "Quiz", new { emplyeeId = model.EmployeeId });
 
 
