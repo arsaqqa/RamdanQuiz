@@ -158,16 +158,18 @@ namespace RamadanQuiz.Controllers
         {
            
             var model = await _QuizContext.CorrectAnswer
-                    .Where(x => x.QuestionToTime < DateTime.Now)
+                    .Where(x => x.QuestionFromTime <= DateTime.Now)
                    .Select(x => new CorrectAnswerViewModel
                 {
                     QuestionId = x.QuestionId,
                     QuestionText = x.QuestionText,
                     QuestionOptionID = x.QuestionOptionID,
                       QuestionDay = x.QuestionDay,
+                       QuestionDate = x.QuestionDate,
                        QuestionOptionText = x.QuestionOptionText,
                     IsCorrect = x.IsCorrect,
                     QuestionToTime = x.QuestionToTime
+
     
                 }).ToListAsync();
 
@@ -177,9 +179,12 @@ namespace RamadanQuiz.Controllers
 
                 .Where(x => x.EmployeeId == emplyeeId)
               .Select(x => new EmplyeeAnswerQuestion
-               {
-                    EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
-                  EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
+              {
+                  EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
+                  EmployeeQuestionOptionText = x.EmployeeQuestionOptionText,
+                  QuestionId =x.QuestionId,
+                  
+
                   // QuestionOption = x.EmployeeQuestionOption
                   //.Select(c => new QuestionOption
                   //{
@@ -197,6 +202,8 @@ namespace RamadanQuiz.Controllers
                   //    //EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
 
               }).ToListAsync();
+
+            
 
 
             EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel

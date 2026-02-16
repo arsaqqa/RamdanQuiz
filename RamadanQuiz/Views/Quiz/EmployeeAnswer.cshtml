@@ -6,164 +6,123 @@
 
 <link href="~/css/employeeanswer.css" rel="stylesheet" />
 
-
-@* 
 <div class="container py-5">
 
-    <h2 class="text-center mb-4">نتائجك</h2>
+    <h2 class="text-center fw-bold mb-5 ">نتائج المسابقة</h2>
 
-<<<<<<< HEAD
-    @foreach (var questionGroup in Model.GroupBy(q => q.))
-=======
-    @* @foreach (var questionGroup in Model.GroupBy(q => q.QuestionId))
->>>>>>> 822bb064bc6a988f4a5f348890b2ad66031d805e
+    @foreach (var correctAnswer in Model.correctAnswerViewModel)
     {
-        var first = questionGroup.First();
+        var empAnswer = Model.employeeAnswer
+        .FirstOrDefault(x => x.QuestionId == correctAnswer.QuestionId);
 
+        bool isToday = correctAnswer.QuestionDate
+        == DateOnly.FromDateTime(DateTime.Today);
 
-        var selectedAnswer = questionGroup
-        .FirstOrDefault(x =>
-        !string.IsNullOrEmpty(x.EmployeeQuestionOptionText));
+        <div class="card shadow-sm border-0 rounded-4 mb-4">
 
-        string answerText = selectedAnswer?.EmployeeQuestionOptionText
-        ?? "لم تقم بادخال اجابة لهذا السؤال";
+            <div class="card-body p-4">
 
-        <div class="card shadow-sm mb-4 p-4 rounded-4">
+               
+                <h6 class="fw-bold text-secondary mb-2">
+                    @correctAnswer.QuestionDay
+                </h6>
 
-            <!-- نص السؤال -->
-            <h6 class="fw-bold mb-3">
-                @first.QuestionDay
-            </h6>
+               
+                <p class="fs-5 fw-semibold mb-3">
+                    @correctAnswer.QuestionText
+                </p>
 
-            <p>@first.QuestionText</p>
+                
+                <div class="mb-3">
+                    <span class="fw-bold">إجابتك:</span>
+                    <span class="ms-2 @(empAnswer != null ? "text-dark" : "text-muted")">
+                        @(empAnswer != null
+                                            ? empAnswer.EmployeeQuestionOptionText
+                                            : "لم تقم بإدخال إجابة لهذا السؤال")
+                </span>
+            </div>
 
-
-            <!-- عرض كل الخيارات -->
-            @foreach (var option in questionGroup)
-            {
-                string cssClass = "answer-box";
-
-                if (option.QuestionOptionText == first.QuestionOptionText)
+            @if (!isToday)
                 {
-                    cssClass += " correct-answer";
+                    <!-- الإجابة الصحيحة -->
+                    <div class="mb-3">
+                        <span class="fw-bold text-success">
+                            الإجابة الصحيحة:
+                        </span>
+                        <span class="ms-2 fw-semibold">
+                            @correctAnswer.QuestionOptionText
+                        </span>
+                    </div>
+
+                
+                    @if (empAnswer != null &&
+                                empAnswer.EmployeeQuestionOptionId
+                                == correctAnswer.QuestionOptionID)
+                    {
+                        <div class="alert alert-success rounded-3 py-2 px-3 ">
+                            ✔ إجابتك صحيحة 
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger rounded-3 py-2 px-3 ">
+                            ❌ إجابتك خاطئة  
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning rounded-3 py-2 px-3 ">
+                        ⏳ سيتم عرض الإجابة الصحيحة بعد انتهاء وقت السؤال
+                    </div>
                 }
 
-
-
-                if (option.EmployeeQuestionOptionText == option.QuestionOptionText
-                && !option.IsCorrect)
-                {
-                    cssClass += " wrong-answer";
-                }
-
-                <div class="@cssClass">
-                    @option.QuestionOptionText
-                </div>
-
-
-
-
-            }
-            <div class="fw-bold mt-3">
-                إجابتك: @answerText
-            </div>
-
-        </div>
-
-
-    } *
-
-
-
-
-</div> *
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@* 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<link href="~/css/employeeanswer.css" rel="stylesheet" />
-
-
-    <div class="container py-5">
-
-        <h2 class="text-center mb-5">نتائجك النهائية</h2>
-
-       
-        <div class="card result-card">
-            <div class="question-title">
-            السؤال 1: م مدة صيام شهر رمضان؟
-            </div>
-
-            <div class="option wrong">
-            أ - شهر)
-            </div>
-
-            <div class="option correct">
-                ب - اسبوعين)
-            </div>
-
-            <div class="option normal">
-                ج - شهرين
-            </div>
-
-            <div class="mt-3">
-                <span class="badge bg-danger badge-result">إجابة خاطئة ❌</span>
             </div>
         </div>
+    }
 
-
-        <!-- مثال سؤال 2 -->
-        <div class="card result-card">
-            <div class="question-title">
-            السؤال 2:  ما هي السورة التي تُقرأ في كل الصّلوات؟
-            </div>
-
-            <div class="option normal">
-            أ - سورة الكهف
-            </div>
-
-            <div class="option correct">
-            ب - سورة الفاتحة (اختيارك ✔)
-            </div>
-
-            <div class="option normal">
-            ج - سورة الصمد
-            </div>
-
-            <div class="mt-3">
-                <span class="badge bg-success badge-result">إجابة صحيحة ✅</span>
-            </div>
-        </div>
-
-
-    </div>
+</div>
 
 
 
 
 
- *@
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+
+
+    <script>
+      
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

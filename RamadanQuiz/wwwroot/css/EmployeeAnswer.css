@@ -17,38 +17,3 @@
     font-weight: bold;
     margin-bottom: 15px;
 }
-
-.option {
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #ddd;
-}
-
-.answer-box {
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    border: 1px solid #ddd;
-    background-color: #f8f9fa;
-}
-
-.correct-answer {
-    background-color: #d4edda;
-    border: 1px solid #28a745;
-    color: #155724;
-}
-
-.wrong-answer {
-    background-color: #f8d7da;
-    border: 1px solid #dc3545;
-    color: #721c24;
-}
-
-.normal {
-    background-color: #ffffff;
-}
-
-.badge-result {
-    font-size: 14px;
-}
