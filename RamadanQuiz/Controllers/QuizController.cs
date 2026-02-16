@@ -31,7 +31,7 @@ namespace RamadanQuiz.Controllers
                 .Select(x => new QuestionViewModel
                 {
                     QuestionId = x.QuestionId,
-                    EmployeeId = 1,
+                    EmployeeId = 4,
                     QuestionText = x.QuestionText,
                     QuestionDay = x.QuestionDay,
                     QuestionDate = x.QuestionDate.ToString(),
@@ -53,9 +53,41 @@ namespace RamadanQuiz.Controllers
                 ViewBag.ErrorMsg = "لا يوجد سؤال متاح حالياً";
                 return View(new QuestionViewModel());
             }
+            else
+            {
+                var exists = _QuizContext.EmplyeeAnswerQuestion
+                            .Any(x => x.QuestionId == model.QuestionId
+                            && x.EmployeeId == model.EmployeeId);
 
-            return View(model);
+                if (!exists)
+                {
+
+                    return View(model);
+
+
+                }
+                else
+                {
+                    TempData["ErrorMsg"] = "لقد قمت بالإجابة على هذا السؤال من قبل";
+                    return RedirectToAction("EmployeeAnswer", "Quiz", new { emplyeeId = model.EmployeeId });
+
+
+                }
+
+            }
+
+
+
+
         }
+
+
+            
+
+
+
+           
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SubmitAnswer(QuestionViewModel questionViewModel)
@@ -87,9 +119,9 @@ namespace RamadanQuiz.Controllers
             if (!exists)
             {
                 // لم يجب من قبل
-               EmployeeAnswer employeeAnswer = new EmployeeAnswer();
+                EmployeeAnswer employeeAnswer = new EmployeeAnswer();
                 employeeAnswer.QuestionOptionId = questionViewModel.QuestionOptionId;
-                employeeAnswer.EmployeeId = 1;
+                employeeAnswer.EmployeeId = 4;
                 employeeAnswer.AnswerDateTime = DateTime.UtcNow;
                 _QuizContext.Add(employeeAnswer);
                 _QuizContext.SaveChanges();
@@ -98,10 +130,7 @@ namespace RamadanQuiz.Controllers
                 return; 
             
             }
-            else
-            {
-                TempData["ErrorMsg"] = "لقد قمت بالإجابة على هذا السؤال من قبل";
-            }
+          
 
             }
 

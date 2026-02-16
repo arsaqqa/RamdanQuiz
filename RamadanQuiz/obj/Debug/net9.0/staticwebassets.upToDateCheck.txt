@@ -64,9 +64,7 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\css\EmployeeAnswer.css
-D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\css\Quiz.css
-D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\css\site.css
-D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\favicon.ico
+D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\LICENSE.txt
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\js\site.js
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -126,4 +124,6 @@ D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.min.map
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.js
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\dist\jquery.slim.min.map
-D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\lib\jquery\LICENSE.txt
+D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\css\site.css
+D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\favicon.ico
+D:\Work\RamdanQuiz\RamadanQuiz\wwwroot\css\Quiz.css
