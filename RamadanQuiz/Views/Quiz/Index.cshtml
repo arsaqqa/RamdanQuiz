@@ -9,7 +9,12 @@
         @ViewBag.ErrorMsg
     </div>
 }
-
+<a asp-controller="Quiz"
+   asp-action="EmployeeAnswer"
+   asp-route-emplyeeId="@Model.EmployeeId"
+   class="btn btn-primary">
+    عرض نتائجي
+</a>
 
 <form asp-action="SubmitAnswer" method="post">
 
