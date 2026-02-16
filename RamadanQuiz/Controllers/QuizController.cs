@@ -20,34 +20,9 @@ namespace RamadanQuiz.Controllers
         {
 
 
-
-            //var now = DateOnly.FromDateTime(DateTime.Now.Date);
-
-            //var questions = await _QuizContext.Question
-            //    .Where(q =>
-            //        q.QuestionDate.Year == now.Year &&
-            //        q.QuestionDate.Month == now.Month)
-            //    .ToListAsync();
-
             DateOnly now = DateOnly.FromDateTime(DateTime.UtcNow);
 
-            //Question question = await _QuizContext.Question
-            //    .Where(q =>
-            //        q.QuestionDate.Year == now.Year &&
-            //        q.QuestionDate.Month == now.Month &&
-            //        q.QuestionDate.Day == now.Day) // لو تريد اليوم فقط
-
-
-            //Question question = await _QuizContext.Question.Include(q => q.questionOption).FirstOrDefaultAsync(q =>  q.QuestionDate.Year == now.Year && q.QuestionDate.Month == now.Month &&   q.QuestionDate.Day == now.Day); //must return server date
-
-            //var questionMV = await _QuizContext.Question
-            //    .Include(x => x.questionOption)
-            //    .Where(x => x.QuestionFromTime >= DateTime.Now
-            //             && x.QuestionToTime <= DateTime.Now)
-            //    .FirstOrDefaultAsync();
-
-
-
+       
             var model = await _QuizContext.Question
                 .Include(x => x.questionOption)
 
@@ -79,11 +54,6 @@ namespace RamadanQuiz.Controllers
                 return View(new QuestionViewModel());
             }
 
-
-
-
-
-
             return View(model);
         }
         [HttpPost]
@@ -98,7 +68,7 @@ namespace RamadanQuiz.Controllers
             {
                 Submit(questionViewModel);
 
-                TempData["SuccessMessage"] = "تم إرسال إجابتك بنجاح 🌙";
+                
             }
 
    
@@ -110,14 +80,6 @@ namespace RamadanQuiz.Controllers
         public async Task  Submit(QuestionViewModel questionViewModel)
 
         {
-
-                if (questionViewModel.QuestionOptionId == 0)
-                {
-
-                }
-
-
-
             var exists = _QuizContext.EmplyeeAnswerQuestion
             .Any(x => x.QuestionId == questionViewModel.QuestionId
             && x.EmployeeId == questionViewModel.EmployeeId);
@@ -128,14 +90,12 @@ namespace RamadanQuiz.Controllers
                EmployeeAnswer employeeAnswer = new EmployeeAnswer();
                 employeeAnswer.QuestionOptionId = questionViewModel.QuestionOptionId;
                 employeeAnswer.EmployeeId = 1;
-
                 employeeAnswer.AnswerDateTime = DateTime.UtcNow;
                 _QuizContext.Add(employeeAnswer);
                 _QuizContext.SaveChanges();
-
+                TempData["SuccessMessage"] = "تم إرسال إجابتك بنجاح 🌙";
                 // Handle the case where no question is found (e.g., show a message or redirect)
                 return; 
-            
             
             }
             else
@@ -143,15 +103,7 @@ namespace RamadanQuiz.Controllers
                 TempData["ErrorMsg"] = "لقد قمت بالإجابة على هذا السؤال من قبل";
             }
 
-
-
-
             }
-
-
-
-
-
 
 
         public async Task<IActionResult> EmployeeAnswer(int  emplyeeId)
@@ -164,13 +116,12 @@ namespace RamadanQuiz.Controllers
                     QuestionId = x.QuestionId,
                     QuestionText = x.QuestionText,
                     QuestionOptionID = x.QuestionOptionID,
-                      QuestionDay = x.QuestionDay,
-                       QuestionDate = x.QuestionDate,
-                       QuestionOptionText = x.QuestionOptionText,
+                    QuestionDay = x.QuestionDay,
+                    QuestionDate = x.QuestionDate,
+                    QuestionOptionText = x.QuestionOptionText,
                     IsCorrect = x.IsCorrect,
                     QuestionToTime = x.QuestionToTime
-
-    
+   
                 }).ToListAsync();
 
 
@@ -178,41 +129,21 @@ namespace RamadanQuiz.Controllers
 
 
                 .Where(x => x.EmployeeId == emplyeeId)
-              .Select(x => new EmplyeeAnswerQuestion
+                .Select(x => new EmplyeeAnswerQuestion
               {
                   EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
                   EmployeeQuestionOptionText = x.EmployeeQuestionOptionText,
                   QuestionId =x.QuestionId,
                   
 
-                  // QuestionOption = x.EmployeeQuestionOption
-                  //.Select(c => new QuestionOption
-                  //{
-                  //    QuestionId = c.QuestionId,
-                  //    QuestionOptionID = c.QuestionOptionID,
-                  //    QuestionOptionText = c.QuestionOptionText
-                  //}).ToList()
-                  //    //QuestionDate = x.QuestionDate,
-                  //    //QuestionText = x.QuestionText,
-                  //    //QuestionOptionID = x.QuestionOptionID,
-                  //    //QuestionOptionText = x.QuestionOptionText,
-                  //    //IsCorrect = x.IsCorrect,
-                  //    //EmployeeId = 1,
-                  //    //EmployeeQuestionOptionId = x.EmployeeQuestionOptionId,
-                  //    //EmployeeQuestionOptionText = x.EmployeeQuestionOptionText
-
               }).ToListAsync();
-
-            
 
 
             EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel
             {
                 correctAnswer = model,
 
-            employeeAnswer = model1 
-
-         
+                employeeAnswer = model1 
 
             };
 
