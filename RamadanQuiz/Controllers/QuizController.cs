@@ -202,11 +202,11 @@ namespace RamadanQuiz.Controllers
             EmplyeeAnswerQuestionViewModel model2 = new EmplyeeAnswerQuestionViewModel
             {
                 correctAnswerViewModel = model,
-<<<<<<< HEAD
+
             employeeAnswer = model1 
-=======
-                employeeAnswer = model1
->>>>>>> 822bb064bc6a988f4a5f348890b2ad66031d805e
+
+         
+
             };
 
             return View(model2);
