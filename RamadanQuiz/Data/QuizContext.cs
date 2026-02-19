@@ -1,5 +1,6 @@
 ﻿global using Microsoft.EntityFrameworkCore;
 using RamadanQuiz.Models;
+using RamadanQuiz.ViewModels;
 namespace RamadanQuiz.Data
 {
     public class QuizContext:DbContext  
@@ -18,6 +19,8 @@ namespace RamadanQuiz.Data
             modelBuilder.Entity<CorrectAnswer>()
                 .HasNoKey();
             modelBuilder.Entity<EmplyeeAnswerQuestion>().HasNoKey();
+            modelBuilder.Entity<vResults>().HasNoKey();
+            modelBuilder.Entity<vEmployeeResults>().HasNoKey();
         }
 
 
@@ -26,5 +29,8 @@ namespace RamadanQuiz.Data
         public DbSet<EmployeeAnswer> EmployeeAnswer { get; set; }
         public DbSet<CorrectAnswer> CorrectAnswer { get; set; }
         public DbSet<EmplyeeAnswerQuestion> EmplyeeAnswerQuestion { get; set; }
+        public DbSet<vResults> vResults { get; set; }
+        public DbSet<vEmployeeResults> vEmployeeResults { get; set; }
+        
     }
 }

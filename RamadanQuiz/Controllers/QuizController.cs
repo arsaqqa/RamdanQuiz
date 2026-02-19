@@ -154,9 +154,34 @@ namespace RamadanQuiz.Controllers
 
 
 
+        public async Task<IActionResult> EmployeeResult(int emplyeeId)
+        {
 
+            var model = await _QuizContext.vEmployeeResults
+                    .Where(x => x.EmployeeId == emplyeeId)
+                   .Select(x => new vEmployeeResults
+                   {
+                      EmployeeId = x.EmployeeId,
+                        IsCorrect = x.IsCorrect,
+                        count = x.count
 
+                   }).ToListAsync();
+            return View(model);
+        }
 
+        public async Task<IActionResult> Result(int emplyeeId)
+        {
 
+            var model = await _QuizContext.vResults
+                    .Where(x => x.count >=25)
+                   .Select(x => new vEmployeeResults
+                   {
+                       
+                       IsCorrect = x.IsCorrect,
+                       count = x.count
+
+                   }).ToListAsync();
+            return View(model);
+        }
     }
-}
+    }
