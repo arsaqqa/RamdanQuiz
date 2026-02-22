@@ -21,6 +21,7 @@ namespace RamadanQuiz.Data
             modelBuilder.Entity<EmplyeeAnswerQuestion>().HasNoKey();
             modelBuilder.Entity<vResults>().HasNoKey();
             modelBuilder.Entity<vEmployeeResults>().HasNoKey();
+            modelBuilder.Entity<vEmployeeResult>().HasNoKey();
         }
 
 
@@ -31,6 +32,7 @@ namespace RamadanQuiz.Data
         public DbSet<EmplyeeAnswerQuestion> EmplyeeAnswerQuestion { get; set; }
         public DbSet<vResults> vResults { get; set; }
         public DbSet<vEmployeeResults> vEmployeeResults { get; set; }
-        
+        public DbSet<vEmployeeResult> vEmployeeResult { get; set; }
+
     }
 }
