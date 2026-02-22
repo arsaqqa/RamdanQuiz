@@ -161,7 +161,7 @@ namespace RamadanQuiz.Controllers
                     .Where(x => x.EmployeeId == emplyeeId)
                    .Select(x => new vEmployeeResults
                    {
-                      EmployeeId = x.EmployeeId,
+                        EmployeeId = x.EmployeeId,
                         IsCorrect = x.IsCorrect,
                         count = x.count
 
@@ -169,18 +169,19 @@ namespace RamadanQuiz.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Result(int emplyeeId)
+        public async Task<IActionResult> Result()
         {
 
             var model = await _QuizContext.vResults
-                    .Where(x => x.count >=25)
-                   .Select(x => new vEmployeeResults
+                   // .Where(x => x.count >=25)
+                   .Select(x => new vResults
                    {
-                       
+                       QuestionId=x.QuestionId,
                        IsCorrect = x.IsCorrect,
                        count = x.count
 
                    }).ToListAsync();
+
             return View(model);
         }
     }

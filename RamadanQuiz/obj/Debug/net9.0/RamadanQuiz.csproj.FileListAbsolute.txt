@@ -329,7 +329,6 @@ D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.pdb
 D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.genruntimeconfig.cache
 D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\ref\RamadanQuiz.dll
 D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\m8q3hh4rev-u32do9gk1a.gz
-D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\xk5o5eip13-0qhmpdx34n.gz
 C:\work\RamdanQuiz\RamadanQuiz\bin\Debug\net9.0\appsettings.Development.json
 C:\work\RamdanQuiz\RamadanQuiz\bin\Debug\net9.0\appsettings.json
 C:\work\RamdanQuiz\RamadanQuiz\bin\Debug\net9.0\RamadanQuiz.staticwebassets.runtime.json
@@ -565,3 +564,4 @@ C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\refint\RamadanQuiz.dll
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.pdb
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\RamadanQuiz.genruntimeconfig.cache
 C:\work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\ref\RamadanQuiz.dll
+D:\Work\RamdanQuiz\RamadanQuiz\obj\Debug\net9.0\compressed\xk5o5eip13-p3m963tv7t.gz

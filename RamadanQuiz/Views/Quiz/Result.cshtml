@@ -1,0 +1,94 @@
+﻿@using RamadanQuiz.ViewModels
+
+@model List<vResults>
+
+<div class="container py-5">
+    @{
+        var grouped = Model
+        .GroupBy(x => x.QuestionId)
+        .Select(g => new
+        {
+            QuestionId = g.Key,
+            Correct = g.Where(x => x.IsCorrect).Sum(x => x.count),
+            Wrong = g.Where(x => !x.IsCorrect).Sum(x => x.count),
+            total = g.Where(x => x.IsCorrect).Sum(x => x.count) + g.Where(x => !x.IsCorrect).Sum(x => x.count)
+        });
+    }
+
+
+    <div class="row">
+        @foreach (var item in grouped)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card shadow-sm border-1 rounded-4 h-100">
+                    <div class="card-body text-center">
+
+                        <h5 class="fw-bold mb-4">
+                            سؤال رقم @item.QuestionId
+                        </h5>
+
+                        <!-- الصح -->
+
+                        <div class="card shadow-sm border-0 rounded-4 px-4 py-3"
+                             style="min-width:220px; background: linear-gradient(135deg,#28a745,#218838); color:white;">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="fs-6">الإجابات الصحيحة</div>
+                                    <div class="fs-3 fw-bold">@item.Correct</div>
+                                </div>
+                                <div class="fs-2">✔</div>
+                            </div>
+                        </div>
+
+                        @* <div >
+                            <span style="font-size:16px ; font-family: 'Cairo', sans-serif;" class="badge bg-success px-3 py-2 rounded-3 ">
+                                ✔ عدد الاجابات الصحيحة   : @item.Correct
+                            </span>
+                        
+                            </div> *@
+                        
+
+                        <!-- الخطأ -->
+                        <div class="card shadow-sm border-0 rounded-4 px-4 py-3 mt-5"
+                             style="min-width:220px; background: linear-gradient(135deg,#dc3545,#b02a37); color:white;">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="fs-6">الإجابات الخاطئة</div>
+                                    <div class="fs-3 fw-bold">@item.Wrong</div>
+                                </div>
+                                <div class="fs-2 text-white">✖</div>
+                            </div>
+                        </div>
+
+                        <!-- العدد الكلي -->
+
+                        <div class="card shadow-sm border-0 rounded-4 px-4 py-3 mt-5"
+                             style="min-width:220px; background: linear-gradient(135deg,#6c757d,#495057); color:white;">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <div class="fs-6"> عدد الاجابات الكلية</div>
+                                    <div class="fs-3 fw-bold">@item.total
+                                    </div>
+                                </div>
+                                <div class="fs-2">⏳</div>
+                            </div>
+                        </div>
+
+                   
+                        @* <div>
+                            <span style="font-size:16px; font-family:'Cairo', sans-serif; background-color:#f0f0f0; color:#000;"
+                                  class="badge px-3 py-2 rounded-3 mt-4">
+                                عدد الاجابات الكلية : @item.total
+                            </span>
+                          
+                        </div> *@
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+</div>

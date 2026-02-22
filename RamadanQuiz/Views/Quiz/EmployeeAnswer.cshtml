@@ -9,6 +9,87 @@
 <div class="container py-5">
 
     <h2 class="text-center fw-bold mb-5 ">نتائج المسابقة</h2>
+    @{
+        int correct = 0;
+        int wrong = 0;
+        int pending = 0; // إذا عندك طريقة تحسب الانتظار
+
+
+        foreach (var correctAnswer in Model.correctAnswer)
+        {
+            var empAnswer = Model.employeeAnswer
+            .FirstOrDefault(x => x.QuestionId == correctAnswer.QuestionId);
+
+            bool isToday = correctAnswer.QuestionDate
+            == DateOnly.FromDateTime(DateTime.Today);
+
+        @if (!isToday)
+        {
+
+
+            if (empAnswer != null &&
+            empAnswer.EmployeeQuestionOptionId == correctAnswer.QuestionOptionID)
+            {
+                correct++;
+            }
+            else 
+            {
+                wrong++;
+            }
+
+        }
+            else
+            {
+                pending++;
+            }
+
+        }
+    }
+    <div class="d-flex justify-content-end flex-wrap gap-4 mt-4 mb-4">
+
+        <!-- Correct -->
+        <div class="card shadow-sm border-0 rounded-4 px-4 py-3"
+             style="min-width:220px; background: linear-gradient(135deg,#28a745,#218838); color:white;">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <div class="fs-6">الإجابات الصحيحة</div>
+                    <div class="fs-3 fw-bold">@correct</div>
+                </div>
+                <div class="fs-2">✔</div>
+            </div>
+        </div>
+
+        <!-- Wrong -->
+        <div class="card shadow-sm border-0 rounded-4 px-4 py-3"
+             style="min-width:220px; background: linear-gradient(135deg,#dc3545,#b02a37); color:white;">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <div class="fs-6">الإجابات الخاطئة</div>
+                    <div class="fs-3 fw-bold">@wrong</div>
+                </div>
+                <div class="fs-2">✖</div>
+            </div>
+        </div>
+
+        <!-- Pending -->
+        <div class="card shadow-sm border-0 rounded-4 px-4 py-3"
+             style="min-width:220px; background: linear-gradient(135deg,#6c757d,#495057); color:white;">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <div class="fs-6">بالانتظار</div>
+                    <div class="fs-3 fw-bold">@pending</div>
+                </div>
+                <div class="fs-2">⏳</div>
+            </div>
+        </div>
+
+    </div>
+
+    
+        
+    
+
+         
 
     @foreach (var correctAnswer in Model.correctAnswer)
     {
@@ -17,6 +98,8 @@
 
         bool isToday = correctAnswer.QuestionDate
         == DateOnly.FromDateTime(DateTime.Today);
+
+
 
         <div class="card shadow-sm border-0 rounded-4 mb-4">
 
@@ -56,8 +139,7 @@
 
                 
                     @if (empAnswer != null &&
-                                empAnswer.EmployeeQuestionOptionId
-                                == correctAnswer.QuestionOptionID)
+                                 empAnswer.EmployeeQuestionOptionId == correctAnswer.QuestionOptionID)
                     {
                         <div class="alert alert-success rounded-3 py-2 px-3 ">
                             ✔ إجابتك صحيحة 

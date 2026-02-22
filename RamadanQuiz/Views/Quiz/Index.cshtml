@@ -10,10 +10,18 @@
     </div>
 }
 <a asp-controller="Quiz"
-   asp-action="EmployeeAnswer"
-   asp-route-emplyeeId="@Model.EmployeeId"
+   asp-action="Result"
+  
    class="btn btn-primary">
-    عرض نتائجي
+    عرض الاحصاءيات الكلية
+</a>
+
+
+<a asp-controller="Quiz"
+   asp-action="EmployeeResult"
+   asp-route-emplyeeId="1"
+   class="btn btn-primary">
+      عرض الاحصاءيات للموظف
 </a>
 
 <form asp-action="SubmitAnswer" method="post">

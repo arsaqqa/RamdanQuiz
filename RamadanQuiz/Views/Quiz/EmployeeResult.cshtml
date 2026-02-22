@@ -1,0 +1,54 @@
+﻿@using RamadanQuiz.ViewModels
+
+
+@model List<RamadanQuiz.ViewModels.vEmployeeResults>
+
+@{
+    ViewData["Title"] = "إحصائيات الموظف";
+
+    var correctCount = Model.Where(x => x.IsCorrect).Sum(x => x.count);
+
+
+    var wrongCount = Model.Where(x => !x.IsCorrect).Sum(x => x.count);
+    
+
+}
+
+    <div class="container py-5">
+
+        <div class="card shadow-lg rounded-4 border-0">
+            <div class="card-body text-center">
+
+                <h3 class="mb-4 fw-bold"> إحصائيات الموظف</h3>
+
+                <div class="row">
+
+                    <!-- صحيح -->
+                    <div class="col-md-6 mb-3">
+                        <div class="card bg-success text-white rounded-4 shadow-sm">
+                            <div class="card-body">
+                                <h5>✔ إجابات صحيحة</h5>
+                                <h2 class="fw-bold">@correctCount</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- خطأ -->
+                    <div class="col-md-6 mb-3">
+                        <div class="card bg-danger text-white rounded-4 shadow-sm">
+                            <div class="card-body">
+                                <h5>✖ إجابات خاطئة</h5>
+                                <h2 class="fw-bold">@wrongCount</h2>
+                            </div>
+                        </div>
+                    </div>
+
+               
+
+                </div>
+
+       
+            </div>
+        </div>
+
+    </div>

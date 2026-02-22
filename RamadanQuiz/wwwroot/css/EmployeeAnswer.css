@@ -1,6 +1,7 @@
 ﻿body {
     background: #f4f6f9;
     font-family: 'Cairo', sans-serif;
+   
 }
 
 .result-card {
@@ -16,4 +17,8 @@
 .question-title {
     font-weight: bold;
     margin-bottom: 15px;
+}
+.custom-badge {
+    font-size: 18px;
+    font-family: 'Cairo', sans-serif;
 }
